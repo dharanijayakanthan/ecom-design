@@ -1,0 +1,65 @@
+<div class="customize-container">
+  <div class="customize-detail">
+    <div class="customize-nav">
+      <a href="">MEN</a>
+    </div>
+    <div class="customize-header">
+      <span class="title">
+        Red Canvas
+      </span>
+      <span class="price">
+        $25USD
+      </span>
+
+    </div>
+    <div class="customize-desc">
+      <span class="desc">OCA LOW</span>
+      <div class="review-section">
+      <div class="stars" *ngFor="let item of [0,1,2,3,4]">
+        <img src="../../../assets/images/star.svg" alt="stars">
+      </div>
+      <span class="review">154 Reviews</span>
+    </div>
+    </div>
+  </div>
+  <div class="customize-console">
+      <div class="gender-tab">
+        <div class="tab-container" [ngClass]="{'selected': gender === 'male'}" (click)="gender = 'male'"> <p class="tab-content">MEN</p> </div>
+        <div class="tab-container" [ngClass]="{'selected': gender === 'female'}" (click)="gender = 'female'">  <p class="tab-content">WOMEN</p> </div>
+      </div>
+      <div class="size-color">
+        <div class="size-color-select">
+          <label>select color</label>
+          <div class="customize-color" >
+            <ng-container *ngFor="let item of productColors">
+                <div class="color-circle" [ngStyle]="{'background-color': item}">
+
+                </div>
+            </ng-container>
+          </div>
+        </div>
+            <div class="size-color-select">
+              <label>select size</label>
+              <div class="customize-size" >
+              <ng-container *ngFor="let item of [5,6,7,8,9,10,11,12,13]; index as i">
+                <div class="size-square">
+                  {{item}}
+                </div>
+                <div class="size-square">
+                  {{item}}.5
+                </div>
+
+            </ng-container>
+            </div>
+          </div>
+      </div>
+      <div class="cart-btn">
+          <button class="add-cart">ADD TO BAG</button>
+      </div>
+
+  </div>
+  <div class="customize-footer">
+    <p>Worldwide Shipping  +  Free Returns</p>
+  </div>
+
+</div>

@@ -1,0 +1,9 @@
+.display-section{
+  display:flex;
+  app-product-display-customize{
+    width:40%;
+  }
+  app-product-display-view{
+    width:60%;
+  }
+}
