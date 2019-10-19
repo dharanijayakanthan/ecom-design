@@ -1,25 +1,21 @@
 .product-view{
   margin-top:60px;
-}
-.owl-nav{
-  opacity:0;
+  width: 890px;
+  height: 535px;
+  BORDER:1PX SOLID #DFE3E9;
+
+  .show-all{
+border:2px solid red;
+.owl-item{}
+
+    .image-slider{
+      margin-right:10px;
+      max-width:80px;
+      height:60px;
+      object-fit: cover;
+    }
+    }
+
 }
 
-.owl-prev{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 50%;
-  height: 518px;
-}
-.owl-next{
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  width: 40%;
-  height: 518px;
-}
-.show-all{
-  display:flex;
-  justify-content: center;
-}
+

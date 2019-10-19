@@ -28,23 +28,50 @@ export class ProductDisplayViewComponent implements OnInit {
     nav: true
   };
 
-  imageStore : any = [];
+  showAll : OwlOptions = {
+    margin: 25,
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['prev', 'next'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+
+  };
+
+  imageStore: any = [];
 
   constructor(private http: ServerBaseService, private https: HttpClient) { }
 
   ngOnInit() {
     this.getProducts();
-    this.getProductImages(8);
-    console.log('this.customOptions', this.customOptions)
+    this.getProductImages(3);
+    console.log('this.customOptions', this.customOptions);
   }
 
   getProducts(){
     this.http.getData('products').subscribe(
     response => {
-      console.log('response', response)
+      console.log('response', response);
     },
     err => {
-      console.log('err', err.error.error.message)
+      console.log('err', err.error.error.message);
     }
     )
 
