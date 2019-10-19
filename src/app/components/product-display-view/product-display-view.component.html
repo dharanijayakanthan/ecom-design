@@ -1,24 +1,20 @@
 
 <div class="product-view">
-
-
-<owl-carousel-o [options]="customOptions">
-
-    <ng-container *ngFor="let slide of imageStore">
-      <ng-template carouselSlide [id]="slide.id">
-        <img [src]="slide.src" style="width:800px; max-height: 535px; object-fit:contain;" >
-      </ng-template>
-    </ng-container>
-
+  <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of imageStore">
+        <ng-template carouselSlide [id]="slide.id">
+          <img [src]="slide.src" style="width:800px; max-height: 535px; object-fit:contain;" >
+        </ng-template>
+      </ng-container>
   </owl-carousel-o>
-
-
 </div>
 
 <div class="show-all">
+  <owl-carousel-o [options]="customOptions">
     <ng-container *ngFor="let slide of imageStore">
-
+        <ng-template carouselSlide [id]="slide.id">
           <img [src]="slide.src" style="width:80px; max-height: 60px; object-fit:contain;" >
-
-      </ng-container>
+        </ng-template>
+    </ng-container>
+  </owl-carousel-o>
 </div>
