@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse} from "@angular
 import {ServerBaseService} from '../../service/server-base';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+
 @Component({
   selector: 'app-product-display-view',
   templateUrl: './product-display-view.component.html',
@@ -13,56 +14,39 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class ProductDisplayViewComponent implements OnInit {
   customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
     dots: false,
     navSpeed: 700,
-    navText: ['prev', 'next'],
+    navText: ['', ''],
     responsive: {
       0: {
-        items: 1
-      }
-    },
-    nav: true
-  };
-
-  showAll : OwlOptions = {
-    margin: 25,
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['prev', 'next'],
-    responsive: {
-      0: {
-        items: 1
+        items: 4
       },
       400: {
-        items: 2
+        items: 4
       },
       740: {
-        items: 3
+        items: 4
       },
       940: {
         items: 4
       }
     },
     nav: true
-
-  };
+  }
 
   imageStore: any = [];
+  selectedImage: any;
+
 
   constructor(private http: ServerBaseService, private https: HttpClient) { }
 
   ngOnInit() {
     this.getProducts();
     this.getProductImages(3);
-    console.log('this.customOptions', this.customOptions);
   }
 
   getProducts(){
@@ -72,8 +56,7 @@ export class ProductDisplayViewComponent implements OnInit {
     },
     err => {
       console.log('err', err.error.error.message);
-    }
-    )
+    })
 
   }
 
@@ -96,8 +79,17 @@ export class ProductDisplayViewComponent implements OnInit {
       };
       obj.src = element.url;
       obj.id = element.id;
+
       this.imageStore.push(obj);
     });
+    this.selectedImage = this.imageStore[0];
+  }
+
+  setSrc(img){
+    this.selectedImage = {
+      src : img.src,
+      id : img.id
+    };
   }
 
 

@@ -1,22 +1,22 @@
+<div class="product-view-skull">
+  <div class="main-image">
+    <img [src]="selectedImage.src" alt="main image">
 
-<div class="product-view">
-  <!-- <owl-carousel-o [options]="customOptions">
-      <ng-container *ngFor="let slide of imageStore">
-        <ng-template carouselSlide [id]="slide.id">
-          <img [src]="slide.src" style="width:800px; max-height: 535px; object-fit:contain;" >
-        </ng-template>
-      </ng-container>
-  </owl-carousel-o> -->
-  <div class="show-all">
-      <owl-carousel-o [options]="showAll">
-        <ng-container *ngFor="let slide of imageStore">
-            <ng-template carouselSlide [id]="slide.id" class="">
-              <img [src]="slide.src" class="image-slider" >
+  </div>
+  <div class="slider-image">
+      <owl-carousel-o [options]="customOptions">
+
+          <ng-container *ngFor="let slide of imageStore">
+            <ng-template carouselSlide [id]="slide.id">
+              <img [src]="slide.src" [ngClass]="{'selected': selectedImage.id === slide.id}" [alt]="slide.alt" (click)="setSrc(slide)" [title]="slide.title">
             </ng-template>
-        </ng-container>
-      </owl-carousel-o>
-    </div>
+          </ng-container>
+
+         </owl-carousel-o>
+  </div>
 </div>
+
+
 
 
 
